@@ -1,0 +1,32 @@
+1) Set the configuration manager to release x64 in Visual studio
+1.1) Copy three dlls from  “../Implementation/OpenSSL-Win64” to output/debug/x64 for debug and output/release/x64 for release before registering UICOM
+2) Copy paste the header to the files to respectives files
+3) Build the services in their respective order
+4) 
+5) 
+6) 
+7) 
+8) Use the given database and create a login under security
+7) Run avanzakeystore.exe -> AvanzaKeyStore.exe -i< config.txt
+7.1) Start service avanzakeystore
+8) Paste in the SSL_CERT In root directory i.e C
+8.1)Create store/rdvstore in root directory
+8.2)Create Logs directory in root directory
+8.3)Create RdvLogs in root directory
+8.4)Run install.bat ->Remove avanzakeystore line from .bat file
+8.5)IF Kek,dek.txt would be generated (Successful) otherwise failure
+9) Generate licensekey using licensekey util using base64 encryption input hardcode des key (62FC792AE09BDF3A)
+-> Encrypt
+10) Run rdvui -> Go to system configuration -> config parameters -> RdvLicenseKey -> PASTE VALUE encrypted licensekey
+11) Start Mon -> Generate logs -> Check C:/rdvlogs/ (Should start and start logging), If not change to e directory
+12) Open regedit -> HkeyLocalMachine -> system -> controlset001 -> services -> rdvmon -> parameters -> CHECK CONNECTION STRING, if it doesn't 
+exist create (NEW->Expandable string value(ConnectionString):(value->udl encrypted value using keyutil))
+13) Start rdvmon service
+13.1) Select * from cluster_node and change the node_name as shown in Monlog
+14) Start rest of the services (tcp/ip, webservice, timer)
+15) Go to RdVUI -> System configuration -> config parameters -> visionDBbCS (PASTE encrypted ConnectionString)
+16) Go to Internal configuration -> function libraries ->  change corefunctionpath to relative path of your repository
+16.1) Open database, delete transaction_function where library_id=92 and Delete odsSwitch function in internal configuration
+17) Run rdvMP ->  Should start 
+18) Create GMD Module -> System configuration -> modules -> Add modules -> RdvGMD (properties same as other) 
+19) Start gmd
