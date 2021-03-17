@@ -5,11 +5,10 @@
 4) 
 5) 
 6) 
-7) 
+7) Paste in the SSL_CERT In root directory i.e C
 8) Use the given database and create a login under security
 7) Run avanzakeystore.exe -> AvanzaKeyStore.exe -i< config.txt
-7.1) Start service avanzakeystore
-8) Paste in the SSL_CERT In root directory i.e C
+7.1) Start service avanzakeystore 
 8.1)Create store/rdvstore in root directory
 8.2)Create Logs directory in root directory
 8.3)Create RdvLogs in root directory
